@@ -18,7 +18,7 @@ module.exports = {
   postgres: {
     dbPool: {
       user: 'bh_dev',
-      password: '6&tWr@Ups82b',
+      password: 'my_secret',
       host: 'localhost',
       port: 5432,
       database: 'bh_dev',
