@@ -1,0 +1,23 @@
+extends layout
+
+block content
+  .container
+    .jumbotron
+      h1(class="display-2") The Barlow House
+      p You have reached the node express portal
+//-
+    h1 Recent Audit Log Entries
+    table.table
+      thead
+        tr
+          th DB ID
+          th Date + Time
+          th Source
+          th Action
+      tbody
+        each row in logs
+          tr
+            td= row._id
+            td= row.date
+            td= row.source
+            td= row.action

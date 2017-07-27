@@ -1,0 +1,21 @@
+{
+  "name": "barlowhouse",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "nodemon -I ./scripts/startup.js"
+  },
+  "dependencies": {
+    "body-parser": "^1",
+    "bootstrap": "4.0.0-alpha.6",
+    "cookie-parser": "^1",
+    "debug": "^2",
+    "express": "^4",
+    "method-override": "^2",
+    "mongodb": "^2",
+    "morgan": "^1",
+    "pg": "^7",
+    "pug": "2.0.0-rc.2",
+    "serve-favicon": "^2"
+  }
+}

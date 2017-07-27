@@ -1,0 +1,32 @@
+extends layout
+include formMixins
+
+block content
+  .container
+    h1 Create New User Account
+    - if ('undefined' === typeof values) {
+    -   values = {}
+    - }
+    - if ('undefined' === typeof errors) {
+    -   errors = {}
+    - } else {
+    div(class="alert alert-danger", role="alert") There are errors with the information that you provided. Please see the messages below, make corrections, and then resubmit.
+    - }
+    form(method="POST", action="/users?_method=PUT")
+      - let helpText = 'Any unique name you would like to use to identify yourself to login. You can use your email address if you like. This username cannot be used by anyone else.'
+      +inputTextWithHelp('username', 'Username:', helpText, values.username, errors.username)
+      +inputPassword('password', 'Password:', values.password, errors.password)
+      +inputPassword('confirm_password', 'Confirm password:', values.confirm_password, errors.confirm_password)
+      +inputCheckbox('resetpw', 'Require password change on next login', values.resetpw)
+      +inputCheckbox('sendnote', 'Send email with credentials to user', values.sendnote)
+      +inputCheckbox('verified', 'User email address is already verified', values.verified)
+      - helpText = 'Any preferred short or casual name, which will be displayed on certain pages instead of your username. (For example, if your username is your email address and you want to keep that private.) Your nice name must be unique and cannot be used by anyone else - max 40 characters.'
+      +inputTextWithHelp('nicename', 'Nice name (optional):', helpText, values.nicename, errors.nicename)
+      +inputText('first_name', 'First name:', values.first_name, errors.first_name)
+      +inputText('middle_name', 'Middle name (optional):', values.middle_name, errors.middle_name)
+      +inputText('last_name', 'Last name:', values.last_name, errors.last_name)
+      - helpText = 'Preferred full name to use instead of simply combining first name + last name above.'
+      +inputTextWithHelp('display_name', 'Display name (optional):', helpText, values.display_name, errors.display_name)
+      - helpText = 'You will be required to respond to a confirmation email that will be sent to this address.'
+      +inputEmailWithHelp('email', 'Email address:', helpText, values.email, errors.email)
+      +submitButton('submit', 'Save this User Account')

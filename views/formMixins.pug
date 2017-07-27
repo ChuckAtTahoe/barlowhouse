@@ -1,0 +1,69 @@
+mixin inputText(name, label, value, errorMsg)
+  - let gClass = 'form-group'
+  - if (errorMsg) {
+  -   gClass += ' has-danger'
+  - }
+  div(class= gClass)
+    label(for= name)= label
+    input(type="text", id= name, name= name, class="form-control", value= value)
+    - if (errorMsg) {
+        div(class="form-control-feedback")= errorMsg
+    - }
+mixin inputTextWithHelp(name, label, helpText, value, errorMsg)
+  - let gClass = 'form-group'
+  - if (errorMsg) {
+  -   gClass += ' has-danger'
+  - }
+  div(class= gClass)
+    label(for= name)= label
+    input(type="text", id= name, name= name, class="form-control", value= value)
+    - if (errorMsg) {
+        div(class="form-control-feedback")= errorMsg
+    - }
+    small(class="form-text text-muted" id= name)= helpText
+mixin inputPassword(name, label, value, errorMsg)
+  - let gClass = 'form-group'
+  - if (errorMsg) {
+  -   gClass += ' has-danger'
+  - }
+  div(class= gClass)
+    label(for= name)= label
+    input(type="password", id= name, name= name, class="form-control", value= value)
+    - if (errorMsg) {
+        div(class="form-control-feedback")= errorMsg
+    - }
+mixin inputEmail(name, label, value, errorMsg)
+  - let gClass = 'form-group'
+  - if (errorMsg) {
+  -   gClass += ' has-danger'
+  - }
+  div(class= gClass)
+    label(for= name)= label
+    input(type="email", id= name, name= name, class="form-control", value= value)
+    - if (errorMsg) {
+        div(class="form-control-feedback")= errorMsg
+    - }
+mixin inputEmailWithHelp(name, label, helpText, value, errorMsg)
+  - let gClass = 'form-group'
+  - if (errorMsg) {
+  -   gClass += ' has-danger'
+  - }
+  div(class= gClass)
+    label(for= name)= label
+    input(type="email", id= name, name= name, class="form-control", value= value)
+    - if (errorMsg) {
+        div(class="form-control-feedback")= errorMsg
+    - }
+    small(class="form-text text-muted" id= name)= helpText
+mixin inputCheckbox(name, label, value)
+  .form-group
+    label(class="custom-control custom-checkbox")
+      - if (value) {
+          input(type="checkbox", name= name, value="1", class="custom-control-input", checked="checked")
+      - } else {
+          input(type="checkbox", name= name, value="1", class="custom-control-input")
+      - }
+      span(class="custom-control-indicator")
+      span(class="custom-control-description")= label
+mixin submitButton(name, label)
+  button(type="submit", class="btn btn-primary", name= name)= label

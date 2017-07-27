@@ -1,0 +1,7 @@
+# do not track npm modules
+node_modules
+# do not track log files
+logs
+*.log
+# environment-specific (secret) credentials
+config/credentials
